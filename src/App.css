@@ -28,8 +28,7 @@ a {
 
 @media only screen and (min-width: 1600px) {
   .navbar-container {
-    width: 1600px;
-
+    width: 1100px;
   }
 }
 
@@ -428,13 +427,13 @@ a {
   border-top-style: solid;
   border-width: 1px;
   border-color: #cbd5e1;
-  width: 1400px;
+  width: 1100px;
   margin: auto;
 }
 
 .footer-wrap {
   display: grid;
-  width: 1400px;
+  width: 1100px;
   margin: 40px auto;
   grid-template-columns: auto auto auto auto;
 }
@@ -446,7 +445,7 @@ a {
 
 .footer-sosmed {
   margin: 40 auto;
-  width: 1400px;
+  width: 1100px;
 }
 
 .brand h4 {
