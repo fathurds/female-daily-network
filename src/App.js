@@ -89,6 +89,48 @@ function App() {
     }
   }
 
+  const nextReviews = document.getElementById('next-reviews');
+  const previousReviews = document.getElementById('previous-reviews');
+  const reviewContent = document.getElementsByClassName('review-content');
+  const pageReviews = document.getElementsByClassName('page-reviews');
+
+  const [reviewPage, setReviewPage] = useState(0);
+
+  const nextReviewPage = (page) => {
+    for (let i of reviewContent) {
+      if (page === 0) {
+        i.style.left = "0px";
+        nextReviews.style.opacity = '1';
+      }
+      if (page === 1) {
+        i.style.left = "-340px";
+        nextReviews.style.opacity = '0.5';
+        previousReviews.style.opacity = '1';
+        pageReviews[0].style.opacity = '0.5';
+        pageReviews[1].style.opacity = '1';
+      }
+      if (page > 1) { setReviewPage(1) }
+    }
+  }
+
+  const previousReviewPage = (page) => {
+    for (let i of reviewContent) {
+      if (page === 0) {
+        i.style.left = "0px";
+        nextReviews.style.opacity = '1';
+        previousReviews.style.opacity = '0.5';
+        pageReviews[0].style.opacity = '1';
+        pageReviews[1].style.opacity = '0.5';
+      }
+      if (page === 1) {
+        i.style.left = "-1300px";
+        nextReviews.style.opacity = '0.5';
+        previousReviews.style.opacity = '1';
+      }
+      if (page < 0) { setReviewPage(0) }
+    }
+  }
+
   return (
     <>
       {/* NAVBAR START */}
@@ -170,68 +212,72 @@ function App() {
 
       {/* BANNER START */}
       <section>
-        <div className="banner-container">
-          <div className="banner-text">
-            <div className="banner-text-wrap">
-              <h1>Looking for products that are just simply perfect for you?</h1>
-              <h3>Here are some products that we believe match your skin, hair, and body! Have we mentioned that they solve your concerns too?</h3>
-              <button>See My Matches</button>
+        <div className="container banner-container">
+          <div className="banner-bg">
+            <div className="banner-text">
+              <div className="banner-text-wrap">
+                <h1>Looking for products that are just simply perfect for you?</h1>
+                <h3>Here are some products that we believe match your skin, hair, and body! Have we mentioned that they solve your concerns too?</h3>
+                <button>See My Matches</button>
+              </div>
             </div>
-          </div>
 
-          <div className="editor-content no-border">
-            <img src="https://static.femaledaily.com/dyn/640/images/prod-pics/product_1558000129_YOU_MAKEUP_800x800.png" alt="" />
-            <h4>Match Skin Type</h4>
-            <div className="rating">
-              <h3>4.9</h3>
-              <div className="star">
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <p>(7)</p>
+            <div className='content-wrap'>
+              <div className="editor-content no-border">
+                <img src="https://static.femaledaily.com/dyn/640/images/prod-pics/product_1558000129_YOU_MAKEUP_800x800.png" alt="" />
+                <h4>Match Skin Type</h4>
+                <div className="rating">
+                  <h3>4.9</h3>
+                  <div className="star">
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <p>(7)</p>
+                  </div>
+                </div>
+                <h3 style={{ marginBottom: "5px" }}>JUICE BEAUTY</h3>
+                <h3 style={{ fontWeight: "600" }}>Phyto-Pigments Flawless Serum</h3>
+                <h3 style={{ fontWeight: "600", opacity: "0.5" }}>Rosy Beige</h3>
+              </div>
+              <div className="editor-content no-border">
+                <img src="https://static.femaledaily.com/dyn/640/images/prod-pics/product_1558000129_YOU_MAKEUP_800x800.png" alt="" />
+                <h4>Match Skin Type</h4>
+                <div className="rating">
+                  <h3>4.9</h3>
+                  <div className="star">
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <p>(7)</p>
+                  </div>
+                </div>
+                <h3 style={{ marginBottom: "5px" }}>JUICE BEAUTY</h3>
+                <h3 style={{ fontWeight: "600" }}>Phyto-Pigments Flawless Serum</h3>
+                <h3 style={{ fontWeight: "600", opacity: "0.5" }}>Rosy Beige</h3>
+              </div>
+              <div className="editor-content no-border">
+                <img src="https://static.femaledaily.com/dyn/640/images/prod-pics/product_1558000129_YOU_MAKEUP_800x800.png" alt="" />
+                <h4>Match Skin Type</h4>
+                <div className="rating">
+                  <h3>4.9</h3>
+                  <div className="star">
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <p>(7)</p>
+                  </div>
+                </div>
+                <h3 style={{ marginBottom: "5px" }}>JUICE BEAUTY</h3>
+                <h3 style={{ fontWeight: "600" }}>Phyto-Pigments Flawless Serum</h3>
+                <h3 style={{ fontWeight: "600", opacity: "0.5" }}>Rosy Beige</h3>
               </div>
             </div>
-            <h3 style={{ marginBottom: "5px" }}>JUICE BEAUTY</h3>
-            <h3 style={{ fontWeight: "600" }}>Phyto-Pigments Flawless Serum</h3>
-            <h3 style={{ fontWeight: "600", opacity: "0.5" }}>Rosy Beige</h3>
-          </div>
-          <div className="editor-content no-border">
-            <img src="https://static.femaledaily.com/dyn/640/images/prod-pics/product_1558000129_YOU_MAKEUP_800x800.png" alt="" />
-            <h4>Match Skin Type</h4>
-            <div className="rating">
-              <h3>4.9</h3>
-              <div className="star">
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <p>(7)</p>
-              </div>
-            </div>
-            <h3 style={{ marginBottom: "5px" }}>JUICE BEAUTY</h3>
-            <h3 style={{ fontWeight: "600" }}>Phyto-Pigments Flawless Serum</h3>
-            <h3 style={{ fontWeight: "600", opacity: "0.5" }}>Rosy Beige</h3>
-          </div>
-          <div className="editor-content no-border">
-            <img src="https://static.femaledaily.com/dyn/640/images/prod-pics/product_1558000129_YOU_MAKEUP_800x800.png" alt="" />
-            <h4>Match Skin Type</h4>
-            <div className="rating">
-              <h3>4.9</h3>
-              <div className="star">
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <img src={star} alt="" />
-                <p>(7)</p>
-              </div>
-            </div>
-            <h3 style={{ marginBottom: "5px" }}>JUICE BEAUTY</h3>
-            <h3 style={{ fontWeight: "600" }}>Phyto-Pigments Flawless Serum</h3>
-            <h3 style={{ fontWeight: "600", opacity: "0.5" }}>Rosy Beige</h3>
           </div>
         </div>
       </section>
@@ -286,36 +332,54 @@ function App() {
           </div>
 
           <div className="reviews">
-
             <div className="reviews-wrap">
-              {reviews.map((el, i) => (
-                <div className="review-content" key={i}>
-                  <div className="review-content-head">
-                    <img src={el.product.image} alt={el.product.desc} />
-                    <div>
-                      <h3>{el.product.desc}</h3>
-                      <h3 style={{ fontWeight: "500" }}>{el.product.name}</h3>
+              <div className='reviews-slider'>
+                {reviews.map((el, i) => (
+                  <div className="review-content" key={i}>
+                    <div className="review-content-head">
+                      <img src={el.product.image} alt={el.product.desc} />
+                      <div>
+                        <h3>{el.product.desc}</h3>
+                        <h3 style={{ fontWeight: "500" }}>{el.product.name}</h3>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="review-content-body">
-                    <div className="review-rating">
-                      {rating(el.star)}
-                      <p>2 hours ago</p>
+                    <div className="review-content-body">
+                      <div className="review-rating">
+                        {rating(el.star)}
+                        <p>2 hours ago</p>
+                      </div>
+                      <p>{el.comment.slice(0, 120)}... <span>Read more</span></p>
                     </div>
-                    <p>{el.comment}... <span>Read more</span></p>
-                  </div>
 
-                  <div className="review-user">
-                    <div className="review-user-text">
-                      <img src={user} alt="" />
-                      <h3>{el.user}</h3>
-                      <h5>{el.profile.join(', ')}</h5>
+                    <div className="review-user">
+                      <div className="review-user-text">
+                        <img src={user} alt="" />
+                        <h3>{el.user}</h3>
+                        <h5>{el.profile.join(', ')}</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <div className="navigation" style={{ marginTop: "0" }}>
+                <span id="previous-reviews" onClick={() => {
+                  if (reviewPage > 0) {
+                    setReviewPage(reviewPage - 1);
+                    previousReviewPage(reviewPage - 1)
+                  }
+                }}>‹</span>
+                <div className="page-reviews"></div>
+                <div className="page-reviews"></div>
+                <span id="next-reviews" onClick={() => {
+                  if (reviewPage < 1) {
+                    setReviewPage(reviewPage + 1);
+                    nextReviewPage(reviewPage + 1)
+                  }
+                }}>›</span>
+              </div>
             </div>
+
             <div className="mr2">
               <h1>MR2 300x250</h1>
             </div>
